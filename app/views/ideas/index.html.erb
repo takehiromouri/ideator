@@ -1,1 +1,39 @@
-<h1>hi</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal" style = "font-size: 25px;font-weight:100; letter-spacing:8px;">
+  Have an Idea?
+</button>
+
+<br>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Idea</h4>
+      </div>
+      <%= simple_form_for Idea.new do |f| %>
+	      <div class="modal-body">
+	        
+					  <%= f.input :description %>
+					  <%= f.input :author %>
+					
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+	      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% @ideas.each do |idea| %>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+			<h4><%= idea.description %></h4>
+			<h3 class = "pull-right">- <%= idea.author %></h3>
+		</div>
+	</div>
+<% end %>
