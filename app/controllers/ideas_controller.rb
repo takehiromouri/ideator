@@ -18,10 +18,18 @@ class IdeasController < ApplicationController
 
 	def update
 		@idea = Idea.find(params[:id])
+		@idea.update(idea_params)
+		redirect_to root_path
 	end
 
 	def show
 		@idea = Idea.find(params[:id])
+	end
+
+	def destroy
+		@idea = Idea.find(params[:id])
+		@idea.destroy
+		redirect_to :back
 	end
 
 	def random

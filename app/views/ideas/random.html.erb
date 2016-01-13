@@ -8,5 +8,7 @@
   <div class="panel-body">
 		<h4><%= @idea.description %></h4>
 		<h3 class = "pull-right">- <%= @idea.author %></h3>
+		<br>
+		<%= link_to 'Delete', idea_path(@idea), method: :delete, class: 'btn btn-danger btn-sm pull-left', data: {confirm: "Are you sure?"} %>
 	</div>
 </div>
