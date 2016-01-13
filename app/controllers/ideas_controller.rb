@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
 	def index
-		@ideas = Idea.order("created_at DESC")
+		@ideas = Idea.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def new
@@ -24,8 +24,8 @@ class IdeasController < ApplicationController
 		@idea = Idea.find(params[:id])
 	end
 
-	def about
-
+	def random
+		@idea = Idea.order("RANDOM()").first
 	end
 
 	private
