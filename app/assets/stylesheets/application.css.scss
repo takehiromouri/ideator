@@ -47,6 +47,10 @@ body {
   letter-spacing: 3px;
 }
 
+.navbar-brand {
+  font-family: 'Pacifico'
+}
+
 .btn-default {
   background-color: lightgray;
 }
@@ -56,7 +60,6 @@ body {
 }
 
 .navbar-default .navbar-brand {
-  color: black;
   font-weight: 100;
   letter-spacing: 8px;
   font-size: 30px;
@@ -65,4 +68,8 @@ body {
 .btn {
   font-weight: 200;
   letter-spacing: 3px;
+}
+
+.panel-body {
+  background-color: whitesmoke;
 }
