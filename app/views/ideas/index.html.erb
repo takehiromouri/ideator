@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal" style = "font-size: 25px;font-weight:100; letter-spacing:8px;">
-  Have an Idea?
+<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">
+  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Post an Idea
 </button>
 
 <br>
@@ -32,17 +32,20 @@
 <% @ideas.each do |idea| %>
 	<div class="panel panel-default">
 	  <div class="panel-body">
-			<h3><%= idea.description %></h3>
-			<h4 class = "pull-right">by <%= idea.author %></h4>
+      <blockquote>
+        <p><%= idea.description %></p>
+        <small>by <%= idea.author %></small>
+      </blockquote> 
+			
 			<br>
 			<div class="btn-group" role="group" aria-label="...">
-				<%= link_to 'Delete', idea_path(idea), method: :delete, class: 'btn btn-sm pull-left', data: {confirm: "Are you sure?"} %>
-				<%= link_to 'Revise', edit_idea_path(idea), class: 'btn btn-sm pull-left' %>
+				<%= link_to 'Delete', idea_path(idea), method: :delete, class: 'btn btn-danger btn-sm pull-left', data: {confirm: "Are you sure?"} %>
+				<%= link_to 'Revise', edit_idea_path(idea), class: 'btn btn-success btn-sm pull-left' %>
 			</div>
 		</div>
 	</div>
 <% end %>
 
 <div class = "text-center">
-	<%= will_paginate @posts %>
+	<%= will_paginate @ideas %>
 </div>

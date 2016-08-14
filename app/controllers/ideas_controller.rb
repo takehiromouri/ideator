@@ -1,10 +1,6 @@
 class IdeasController < ApplicationController
 	def index
-		@ideas = Idea.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-	end
-
-	def new
-		@idea = Idea.new
+		@ideas = Idea.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def create
@@ -18,18 +14,17 @@ class IdeasController < ApplicationController
 
 	def update
 		@idea = Idea.find(params[:id])
-		@idea.update(idea_params)
-		redirect_to root_path
-	end
-
-	def show
-		@idea = Idea.find(params[:id])
+		if @idea.update(idea_params)
+			redirect_to root_path
+		else
+			redirect_to edit_idea_path(params[:id])
+		end
 	end
 
 	def destroy
 		@idea = Idea.find(params[:id])
 		@idea.destroy
-		redirect_to :back
+		redirect_to root_path
 	end
 
 	def random
