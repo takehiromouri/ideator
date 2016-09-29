@@ -1,26 +1,30 @@
-<% if @idea %>
-  <a class="btn btn-primary btn-lg btn-block" href = "javascript:window.location.href=window.location.href">
-    Inspire Me
-  </a>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <% if @idea %>
+      <a class="btn btn-primary btn-block" href = "javascript:window.location.href=window.location.href">
+        Inspire Me
+      </a>
 
-  <br>
-
-<div class="panel panel-default">
-    <div class="panel-body">
-      <blockquote>
-        <p><%= @idea.description %></p>
-        <small>by <%= @idea.author %></small>
-      </blockquote> 
-      
       <br>
-      <div class="btn-group" role="group" aria-label="...">
-        <%= link_to 'Delete', idea_path(@idea), method: :delete, class: 'btn btn-danger btn-sm pull-left', data: {confirm: "Are you sure?"} %>
-        <%= link_to 'Revise', edit_idea_path(@idea), class: 'btn btn-success btn-sm pull-left' %>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+          <blockquote>
+            <p><%= @idea.description %></p>
+            <small>by <%= @idea.author %></small>
+          </blockquote> 
+          
+          <br>
+          <div class="btn-group" role="group" aria-label="...">
+            <%= link_to 'Delete', idea_path(@idea), method: :delete, class: 'btn btn-danger btn-sm pull-left', data: {confirm: "Are you sure?"} %>
+            <%= link_to 'Revise', edit_idea_path(@idea), class: 'btn btn-success btn-sm pull-left' %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% else %>
+
+      <h4>No ideas have been shared. Add one <%= link_to 'here', root_path %></h4>
+
+    <% end %>
   </div>
-<% else %>
-
-  <h4>No ideas have been shared. Add one <%= link_to 'here', root_path %></h4>
-
-<% end %>
+</div>

@@ -5,7 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -13,7 +15,7 @@
 
 <div id = "wrap">
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -42,28 +44,28 @@
   
 </div>
 
-<footer class="footer text-center">
+<div class="footer text-center">
   <div class="container">
     <div class = "row">
-    	<div class = "col-xs-12 col-md-4">
-    		<h4>Contact</h4>
+    	<div class = "col-xs-12 col-md-6">
+    		<h3>Contact</h3>
     		<p>contact@techrise.me</p>
     	</div>
-    	<div class = "col-xs-12 col-md-4">
-    		<h4>Find Us</h4>
+    	<div class = "col-xs-12 col-md-6">
+    		<h3>Find Us</h3>
     		<div class="social-buttons">
 	    		<a href = "#"><i class="fa fa-facebook-official social" ></i></a>
 	    		<a href = "#"><i class="fa fa-twitter-square social" ></i></a>
 	    		<a href = "#"><i class="fa fa-linkedin-square social" ></i></a>
 	    	</div>
-    	</div>
-    	<div class = "col-xs-12 col-md-4">
-    		<h4>&copy; TECHRISE 2016</h4>
-    		<p>All Rights Reserved</p>
-    	</div>
+    	</div>	
     </div>
   </div>
-</footer>
+</div>
+
+<div class="footer-bottom text-center">
+    <p>&copy; TECHRISE <%= Date.today.year %> All Rights Reserved</p>    
+</div>
 
 </body>
 </html>

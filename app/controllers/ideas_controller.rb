@@ -1,10 +1,10 @@
 class IdeasController < ApplicationController
-	def index
+	def index		
 		@ideas = Idea.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
-	def create
-		@idea = Idea.create(idea_params)
+	def create		
+		@idea = Idea.create(params[:idea])
 		redirect_to root_path
 	end
 
