@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
-
-    <% if user_signed_in? %>
-      <div class="idea_form_container">
-        <%= simple_form_for Idea.new do |f| %>        
-            <%= f.input :description, label: false, placeholder: "What's your idea?", input_html: {rows: 4} %>            
-            <%= f.button :button, class: 'btn btn-primary btn-post', data: {disable_with: "Posting..."} do %>
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
-            <% end %>
-        <% end %>
-      </div>
-    <% end %>
+    
     <ul class="list-group">
+      <% if user_signed_in? %>
+        <li class="idea_form_container">
+          <%= simple_form_for Idea.new do |f| %>        
+              <%= f.input :description, label: false, placeholder: "What's your idea?", input_html: {rows: 4} %>            
+              <%= f.button :button, class: 'btn btn-primary btn-post', data: {disable_with: "Posting..."} do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
+              <% end %>
+          <% end %>
+        </li>
+      <% end %>
      <%= render @ideas %>
    </ul>
 

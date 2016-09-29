@@ -5,8 +5,8 @@
         <h2>Edit Idea</h2>
 
         <%= simple_form_for @idea, method: :patch do |f| %>
-          <%= f.input :description, label: false %> 
-          <%= f.submit 'Submit', class: 'btn btn-primary', data: {disable_with: "Posting..."} %>
+          <%= f.input :description, label: false, input_html: {rows: 4} %> 
+          <%= f.submit 'Submit', class: 'btn btn-primary btn-post', data: {disable_with: "Posting..."} %>
         <% end %>
       </div>
 
