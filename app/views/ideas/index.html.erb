@@ -1,56 +1,19 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary  btn-block" data-toggle="modal" data-target="#myModal">
-      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Post an Idea
-    </button>
-
-    <br>
-
-    <% @ideas.each do |idea| %>
-    	<div class="panel panel-default">
-    	  <div class="panel-body">
-          <blockquote>
-            <p><%= idea.description %></p>
-            <small>by <%= idea.author %></small>
-          </blockquote> 
-    			
-    			<br>
-    			<div class="btn-group" role="group" aria-label="...">
-    				<%= link_to 'Delete', idea_path(idea), method: :delete, class: 'btn btn-danger btn-sm pull-left', data: {confirm: "Are you sure?"} %>
-    				<%= link_to 'Revise', edit_idea_path(idea), class: 'btn btn-success btn-sm pull-left' %>
-    			</div>
-    		</div>
-    	</div>
+    <% if user_signed_in? %>
+      <div class="idea_form_container">
+        <%= simple_form_for Idea.new do |f| %>        
+            <%= f.input :description, label: false, placeholder: "What's your idea?" %>            
+            <%= f.submit 'Post Idea', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
     <% end %>
+
+    <%= render @ideas %>
 
     <div class = "text-center">
     	<%= will_paginate @ideas %>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Idea</h4>
-      </div>
-      <%= simple_form_for Idea.new do |f| %>
-        <div class="modal-body">
-          
-            <%= f.input :description %>
-            <%= f.input :author %>
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

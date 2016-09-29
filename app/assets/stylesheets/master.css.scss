@@ -70,3 +70,16 @@ body {
 .cta {
   margin-bottom: 30px;
 }
+
+.idea_form_container {
+  background: #d9edf7;
+  position: relative;
+  padding: 20px 10px 40px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  .btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}

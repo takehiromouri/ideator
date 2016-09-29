@@ -1,10 +1,19 @@
 class IdeasController < ApplicationController
+	before_action :authenticate_user!, except: [:index]
+
 	def index		
 		@ideas = Idea.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def create		
-		@idea = Idea.create(params[:idea])
+		@idea = current_user.ideas.new(params[:idea])
+
+		if @idea.save
+			flash[:success] = "Your idea has been posted!"
+		else
+			flash[:alert] = "Woops! Looks like there's an error!"			
+		end
+
 		redirect_to root_path
 	end
 

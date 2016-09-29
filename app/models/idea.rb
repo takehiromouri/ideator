@@ -1,3 +1,5 @@
 class Idea < ActiveRecord::Base
-	validates :description, :author, presence: true
+	validates :description, :user_id, presence: true
+  
+  belongs_to :user
 end
