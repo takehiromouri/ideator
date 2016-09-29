@@ -1,14 +1,23 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <blockquote>
-      <p><%= idea.description %></p>
-      <small>by <%= idea.user %></small>
-    </blockquote> 
-    
-    <br>
-    <div class="btn-group" role="group" aria-label="...">
-      <%= link_to 'Delete', idea_path(idea), method: :delete, class: 'btn btn-danger btn-sm pull-left', data: {confirm: "Are you sure?"} %>
-      <%= link_to 'Revise', edit_idea_path(idea), class: 'btn btn-success btn-sm pull-left' %>
-    </div>
+<li class="list-group-item">
+  <div class="list-group-item-header">
+    <span class="username"><%= idea.user.name %></span> - <span class="created_at"><%= distance_of_time_in_words(DateTime.now, idea.created_at) %></span>
+
+    <% if idea.user == current_user %>
+      <span class="option-dropdown">
+        <div class="dropdown">
+          <button id="options" class="btn btn-sm btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="options">
+            <li><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i> Delete'.html_safe, idea_path(idea), method: :delete, data: {confirm: "Are you sure?"} %></li>
+            <li><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i> Edit'.html_safe, edit_idea_path(idea) %></li>
+          </ul>
+        </div>
+      </span>
+    <% end %>
+
   </div>
-</div>
+
+  <p><%= idea.description %></p>
+    
+</li>

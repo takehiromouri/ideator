@@ -1,7 +1,17 @@
-<h1>Revise Idea</h1>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-<%= simple_form_for @idea, method: :patch do |f| %>
-	<%= f.input :description %>
-	<%= f.input :author %>		
-	<%= f.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+      <div class="idea_form_container">
+        <h2>Edit Idea</h2>
+
+        <%= simple_form_for @idea, method: :patch do |f| %>
+          <%= f.input :description, label: false %> 
+          <%= f.submit 'Submit', class: 'btn btn-primary', data: {disable_with: "Posting..."} %>
+        <% end %>
+      </div>
+
+
+
+  </div>
+</div>
+

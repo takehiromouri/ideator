@@ -2,16 +2,16 @@ class IdeasController < ApplicationController
 	before_action :authenticate_user!, except: [:index]
 
 	def index		
-		@ideas = Idea.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+		@ideas = Idea.all.order("created_at DESC").paginate(page: params[:page], per_page: 5)
 	end
 
 	def create		
-		@idea = current_user.ideas.new(params[:idea])
+		@idea = current_user.ideas.new(idea_params)
 
 		if @idea.save
 			flash[:success] = "Your idea has been posted!"
 		else
-			flash[:alert] = "Woops! Looks like there's an error!"			
+			flash[:alert] = "Woops! Looks like there was an error!"			
 		end
 
 		redirect_to root_path
@@ -24,8 +24,10 @@ class IdeasController < ApplicationController
 	def update
 		@idea = Idea.find(params[:id])
 		if @idea.update(idea_params)
+			flash[:success] = "Your idea has been updated!"
 			redirect_to root_path
 		else
+			flash[:alert] = "Woops! Looks like there was an error!"
 			redirect_to edit_idea_path(params[:id])
 		end
 	end

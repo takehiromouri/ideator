@@ -4,13 +4,16 @@
     <% if user_signed_in? %>
       <div class="idea_form_container">
         <%= simple_form_for Idea.new do |f| %>        
-            <%= f.input :description, label: false, placeholder: "What's your idea?" %>            
-            <%= f.submit 'Post Idea', class: 'btn btn-primary' %>
+            <%= f.input :description, label: false, placeholder: "What's your idea?", input_html: {rows: 4} %>            
+            <%= f.button :button, class: 'btn btn-primary btn-post', data: {disable_with: "Posting..."} do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
+            <% end %>
         <% end %>
       </div>
     <% end %>
-
-    <%= render @ideas %>
+    <ul class="list-group">
+     <%= render @ideas %>
+   </ul>
 
     <div class = "text-center">
     	<%= will_paginate @ideas %>
