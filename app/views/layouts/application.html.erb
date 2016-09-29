@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,58 +15,21 @@
 <body>
 
 <div id = "wrap">
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/" style="color: #337AB7;">Ideator</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-        	<li><%= link_to 'All Ideas', root_path %></li>
-        	<li><%= link_to 'Inspire Me', random_path %></li>
-          <li><%= link_to 'About', about_path %></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+  <%= render 'shared/nav' %>
 
   <div class = "container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <%= render 'shared/flash_messages' %>
+      </div><!-- col-xs-12 col-md-6 col-md-offset-3 -->
+    </div><!-- row -->
+
     <%= yield %>
   </div>
   
 </div>
 
-<div class="footer text-center">
-  <div class="container">
-    <div class = "row">
-    	<div class = "col-xs-12 col-md-6">
-    		<h3>Contact</h3>
-    		<p>contact@techrise.me</p>
-    	</div>
-    	<div class = "col-xs-12 col-md-6">
-    		<h3>Find Us</h3>
-    		<div class="social-buttons">
-	    		<a href = "#"><i class="fa fa-facebook-official social" ></i></a>
-	    		<a href = "#"><i class="fa fa-twitter-square social" ></i></a>
-	    		<a href = "#"><i class="fa fa-linkedin-square social" ></i></a>
-	    	</div>
-    	</div>	
-    </div>
-  </div>
-</div>
-
-<div class="footer-bottom text-center">
-    <p>&copy; TECHRISE <%= Date.today.year %> All Rights Reserved</p>    
-</div>
+<%= render 'shared/footer' %>
 
 </body>
 </html>

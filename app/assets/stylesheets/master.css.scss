@@ -1,9 +1,17 @@
+$footer-height: 45px;
+$main-border-radius: 6px;
+$main-background-color: #d9edf7;
+$main-blue: #337ab7;
+$primary-font: 'Open Sans', sans-serif;  
+$secondary-font: 'Dosis', sans-serif;
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html,
 body {
   height: 100%;
-  font-family: 'Open Sans', sans-serif;  
+  font-family: $primary-font;
+  background: #f5f8fa;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -12,45 +20,38 @@ body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -$footer-height;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 $footer-height;
 }
 
 
 .footer {
+  font-family: $secondary-font;
   /* Set the fixed height of the footer here */
-  min-height: 120px;
-  background-color: #333333;
+  font-family: $secondary-font;
+  padding-top: 10px;
+  padding-bottom: 2px;
+  background: #2e2e2e;
   color: white;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  h3 {
-    font-weight: 300;
-    letter-spacing: 2px;
-  }
+  height: $footer-height;
 }
 
 .footer-bottom {
-  padding-top: 20px;
-  padding-bottom: 10px;
+  font-family: $secondary-font;
+  padding-top: 10px;
+  padding-bottom: 2px;
   background: #2e2e2e;
   color: white;
 }
 
-body {
-  font-weight: 200;
-}
-
-.navbar-brand {
+.navbar-default .navbar-brand {
   letter-spacing: 2px;
-}
-
-.btn-default {
-  background-color: lightgray;
+  color: $main-blue;
 }
 
 .navbar-default {
+  font-family: $secondary-font;
   background-color: white;
 }
 
@@ -59,14 +60,69 @@ body {
   font-size: 30px;
 }
 
-.btn {
-  font-weight: 200;
-}
-
 .social-buttons {
   font-size: 40px;
 }
 
 .cta {
   margin-bottom: 30px;
+}
+
+.idea_form_container {
+  background: $main-background-color;
+  position: relative;
+  padding: 20px 10px 40px;
+  h2 {
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+}
+
+.user_forms {
+  background: #fff;
+  padding: 40px;
+  border-radius: $main-border-radius;
+  h2 {
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+}
+
+.panel {
+  position: relative;
+}
+
+.idea-btn-group {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.created_at {
+  font-weight: 400;
+  color: #777;
+}
+
+.list-group-item-header {
+  height: 50px;
+}
+
+.option-dropdown {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.btn-top-modal {
+  margin-top: 8px;
+}
+
+.btn-post {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
