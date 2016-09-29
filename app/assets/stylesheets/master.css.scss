@@ -1,13 +1,16 @@
+$footer-height: 45px;
 $main-border-radius: 6px;
 $main-background-color: #d9edf7;
 $main-blue: #337ab7;
+$primary-font: 'Open Sans', sans-serif;  
+$secondary-font: 'Dosis', sans-serif;
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html,
 body {
   height: 100%;
-  font-family: 'Open Sans', sans-serif;  
+  font-family: $primary-font;
   background: #f5f8fa;
   /* The html and body elements cannot have any padding or margin. */
 }
@@ -17,26 +20,25 @@ body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -$footer-height;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 $footer-height;
 }
 
 
 .footer {
+  font-family: $secondary-font;
   /* Set the fixed height of the footer here */
-  min-height: 60px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background: white;
-  h3 {
-    font-weight: 300;
-    letter-spacing: 2px;
-    color: $main-blue;
-  }
+  font-family: $secondary-font;
+  padding-top: 10px;
+  padding-bottom: 2px;
+  background: #2e2e2e;
+  color: white;
+  height: $footer-height;
 }
 
 .footer-bottom {
+  font-family: $secondary-font;
   padding-top: 10px;
   padding-bottom: 2px;
   background: #2e2e2e;
@@ -49,6 +51,7 @@ body {
 }
 
 .navbar-default {
+  font-family: $secondary-font;
   background-color: white;
 }
 
